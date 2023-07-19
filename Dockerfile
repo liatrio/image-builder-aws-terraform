@@ -8,7 +8,6 @@ ARG TFLINT_VERSION=v0.39.3
 ARG TERRAFORM_VERSION=1.2.8
 ARG TERRAGRUNT_VERSION=v0.38.9
 ARG AWS_CLI_VERSION=2.11.19
-ARG AWS_VAULT_VERSION=v6.6.2
 
 ENV PATH="$PATH:/usr/local/go/bin"
 
@@ -36,11 +35,6 @@ RUN cd /tmp && \
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-${AWS_CLI_VERSION}.zip" -o "awscliv2.zip" \
     && unzip awscliv2.zip \
     && ./aws/install
-
-# Download and install aws-vault
-RUN curl -Lo /usr/local/bin/aws-vault \
-    https://github.com/99designs/aws-vault/releases/download/${AWS_VAULT_VERSION}/aws-vault-linux-amd64 && \
-    chmod +x /usr/local/bin/aws-vault
 
 # Install go
 RUN wget -O /tmp/go.tar.gz https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz && \
