@@ -1,5 +1,5 @@
 branches:
-  - main
+  - master
 repositoryUrl: https://github.com/liatrio/image-builder-aws-terraform.git
 plugins:
   - "@semantic-release/commit-analyzer"
